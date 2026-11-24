@@ -26,6 +26,7 @@ SOAP_PASSWORD=<random>
 PUBLIC_ADDRESS=<public IP or DNS name of the server>
 REALM_NAME=Forever
 CLIENT_BUILD=70450
+ACCEPT_BUILDS=
 BUILD_JOBS=2
 DATA_DIR=../files/data
 CERTS_DIR=../files/certs

@@ -119,8 +119,12 @@ signed by Apple, so players run `xattr -cr "/Applications/Forever Launcher.app"`
 - **Update**: `docker compose build --no-cache && docker compose up -d`; new SQL updates are applied on start.
   If the branch merges one of the patches, the build stops at that patch: delete it.
 - **Using an AI assistant**: [AGENTS.md](AGENTS.md) explains the project and the steps to it.
-- **Newer game client**: set `CLIENT_BUILD` in `.env` to the new build number (experimental until the branch
-  supports it).
+- **Newer game client**: Battle.net moves every player to a new build at once. Name the build the realm runs with
+  `CLIENT_BUILD` and the ones it keeps letting in with `ACCEPT_BUILDS` (e.g. `CLIENT_BUILD=70959`,
+  `ACCEPT_BUILDS=71091`). Without the newer build in that list its clients only see "No realms are currently
+  available" (WOW51900309) although the server is up; the entrypoint writes `Realm.AlsoAcceptBuilds` into both
+  configs and adds the missing `build_info` rows. `CLIENT_BUILD` alone moves the realm to one build
+  (experimental until the branch supports it).
 
 ## License
 
